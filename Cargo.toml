@@ -36,7 +36,8 @@ default-features = false
 
 [dependencies.rand]
 optional = true
-version = "0.7"
+git = "https://github.com/tearust/rand"
+branch = "nitro"
 default-features = false
 
 [dependencies.zeroize]
@@ -68,7 +69,7 @@ default-features = false
 rand_chacha = "0.2"
 rand_xorshift = "0.2"
 rand_isaac = "0.2"
-rand = { version = "0.7", features = ["small_rng"] }
+rand = { path = "../rand", features = ["small_rng"] }
 
 [dev-dependencies.serde_test]
 version = "1.0"
@@ -77,9 +78,10 @@ version = "1.0"
 autocfg = "0.1.5"
 
 [features]
-default = ["std", "i128", "u64_digit"]
+default = ["i128", "u64_digit"]
 i128 = ["num-integer/i128", "num-traits/i128"]
 std = ["num-integer/std", "num-traits/std", "smallvec/write", "rand/std", "serde/std"]
+nitro = ["num-integer/std", "num-traits/std", "smallvec/write", "rand/nitro", "serde/std"]
 u64_digit = []
 prime = ["rand"]
 nightly = []
